@@ -1,5 +1,8 @@
 from pydantic import BaseModel ,EmailStr
 from datetime import datetime
+from typing import Optional , List
+
+
 
 
 
@@ -31,3 +34,16 @@ class UserOut(BaseModel):
     u_created_at:datetime
     class Config:
         from_attributes = True  
+        
+        
+class UserLogin(BaseModel):
+    u_email:EmailStr
+    u_password:str
+        
+        
+class Token(BaseModel):
+    access_token:str
+    token_type:str
+    
+class TokenData(BaseModel):
+     id : Optional[str] = None 
