@@ -5,7 +5,7 @@ from .. import database,schemas,models,utils,oauth2
 from typing import List
 
 
-router = APIRouter(tags=['authentiction'])
+router = APIRouter(tags=['Authentication'])
 
 
 @router.post('/login')
@@ -23,6 +23,6 @@ def login(user_credentials:OAuth2PasswordRequestForm = Depends(),db:session=Depe
     
 
 
-    return{"access_token": access_token ," token_type":"bearer"}
+    return{"access_token": access_token ," token_type":"Bearer Token"}
 
 

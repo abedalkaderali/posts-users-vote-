@@ -1,14 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from .config import settings
 
-username = 'postgres'
-password = 'Touch1122'
-host = 'localhost'
-port = '5432'
-database = 'fastapi'
 
-connection_string = f'postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}'
+
+connection_string = f'postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 engine = create_engine(connection_string)
 
 
